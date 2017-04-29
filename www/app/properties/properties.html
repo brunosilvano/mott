@@ -9,9 +9,7 @@
 		</label>
 		<label class="item item-input item-select">
 			<div class="input-label">Dados de Entrada</div>
-			<select>
-				<option>Entalpia / Entropia</option>
-			</select>
+			<select ng-model="vm.input" ng-options="input.id as input.properties for input in vm.substanceList[vm.substance - 1].inputs"></select>
 		</label>
 		<label class="item item-input">
 			<div class="input-label">Dado 1</div>
@@ -22,4 +20,5 @@
 			<input type="number">
 		</label>
 	</div>
+	{{ vm.input }}
 </ion-content>

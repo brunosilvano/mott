@@ -9,14 +9,27 @@
   function PropertiesController() {
     var vm = this;
 
-    vm.title = 'Propriedades';
+    vm.input = 1;
     vm.substance = 1;
     vm.substanceList = [{
       id: 1,
-      name: 'Água'
+      name: 'Água',
+      inputs: [{
+        id: 1,
+        properties: 'p, T'
+      }, {
+        id: 2,
+        properties: 'p, h'
+      }, {
+        id: 3,
+        properties: 'p, s'
+      }, {
+        id: 4,
+        properties: 'h, s'
+      }]
     }];
+    vm.title = 'Propriedades';
 
-    console.log(NeutriumJS.thermo.IAPWS97.PT.solve(0.5, 1500));
 
     ///////////////////////////////////////////////////////////////////////////////////
 
