@@ -13,7 +13,9 @@
 
       .state('app', {
         url: '/',
-        templateUrl: 'app/properties/properties.html'
+        templateUrl: 'app/properties/properties.html',
+        controller: 'PropertiesController',
+        controllerAs: 'vm'
       })
 
     ;
