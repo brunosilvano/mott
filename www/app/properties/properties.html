@@ -1,12 +1,27 @@
-<ion-header-bar align-title="left" class="bar-positive">
-  <div class="buttons">
-    <button class="button" ng-click="doSomething()">Left Button</button>
-  </div>
-  <h1 class="title">Title!</h1>
-  <div class="buttons">
-    <button class="button">Right Button</button>
-  </div>
+<ion-header-bar align-title="left" class="bar-light">
+	<h1 class="title">Title!</h1>
 </ion-header-bar>
 <ion-content class="has-header">
-  Some content!
+	<div class="list">
+		<label class="item item-input item-select">
+			<div class="input-label">Substância</div>
+			<select>
+				<option>Água</option>
+			</select>
+		</label>
+		<label class="item item-input item-select">
+			<div class="input-label">Dados de Entrada</div>
+			<select>
+				<option>Entalpia / Entropia</option>
+			</select>
+		</label>
+		<label class="item item-input">
+			<div class="input-label">Dado 1</div>
+			<input type="number">
+		</label>
+		<label class="item item-input">
+			<div class="input-label">Dado 2</div>
+			<input type="number">
+		</label>
+	</div>
 </ion-content>
