@@ -1,1 +1,7 @@
-/* Empty. Add your own CSS if you like */
+.item.item-thermo_prop {
+    padding: 0;
+}
+
+.item.item-thermo_prop > .row > .col:nth-child(2) {
+    text-align: right;
+}
