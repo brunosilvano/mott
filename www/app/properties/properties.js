@@ -16,16 +16,24 @@
       name: 'Água',
       inputs: [{
         id: 1,
-        properties: 'p, T'
+        properties: 'p, T',
+        prop1: 'Pressão',
+        prop2: 'Temperatura'
       }, {
         id: 2,
-        properties: 'p, h'
+        properties: 'p, h',
+        prop1: 'Pressão',
+        prop2: 'Entalpia'
       }, {
         id: 3,
-        properties: 'p, s'
+        properties: 'p, s',
+        prop1: 'Pressão',
+        prop2: 'Entropia'
       }, {
         id: 4,
-        properties: 'h, s'
+        properties: 'h, s',
+        prop1: 'Entalpia',
+        prop2: 'Entropia'
       }]
     }];
     vm.title = 'Propriedades';
