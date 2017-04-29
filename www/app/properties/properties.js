@@ -36,6 +36,13 @@
         prop2: 'Entropia'
       }]
     }];
+    vm.result = null;
+    vm.prop1 = 0.5;
+    vm.prop2 = 1500;
+
+    vm.calculate = function () {
+        vm.result = NeutriumJS.thermo.IAPWS97.PT.solve(vm.prop1, vm.prop2);
+    }
 
 
     ///////////////////////////////////////////////////////////////////////////////////
