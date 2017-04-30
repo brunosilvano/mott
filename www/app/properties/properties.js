@@ -9,38 +9,23 @@
   function PropertiesController() {
     var vm = this;
 
+    vm.calculate = calculate;
     vm.input = 1;
-    vm.substance = 1;
-    vm.substanceList = [{
-      id: 1,
-      name: 'Água',
-      inputs: [{
-        id: 1,
-        properties: 'p, T',
-        prop1: 'Pressão',
-        prop2: 'Temperatura'
-      }, {
-        id: 2,
-        properties: 'p, h',
-        prop1: 'Pressão',
-        prop2: 'Entalpia'
-      }, {
-        id: 3,
-        properties: 'p, s',
-        prop1: 'Pressão',
-        prop2: 'Entropia'
-      }, {
-        id: 4,
-        properties: 'h, s',
-        prop1: 'Entalpia',
-        prop2: 'Entropia'
-      }]
-    }];
-    vm.result = null;
     vm.prop1 = null;
     vm.prop2 = null;
+    vm.result = {};
+    vm.substance = 1;
+    vm.substanceList = [];
 
-    vm.calculate = function () {
+    activate();
+
+    ////////////////
+
+    function activate() {
+      return getSubstances();
+    };
+
+    function calculate() {
       switch (vm.input) {
         case 1:
           vm.result = NeutriumJS.thermo.IAPWS97.PT.solve(vm.prop1, vm.prop2);
@@ -56,17 +41,38 @@
           break;
         default:
           break;
-      }
+      };
+    };
 
-    }
+    function getSubstances() {
+      var substanceList = [{
+        id: 1,
+        name: 'Água',
+        inputs: [{
+          id: 1,
+          properties: 'p, T',
+          prop1: 'Pressão',
+          prop2: 'Temperatura'
+        }, {
+          id: 2,
+          properties: 'p, h',
+          prop1: 'Pressão',
+          prop2: 'Entalpia'
+        }, {
+          id: 3,
+          properties: 'p, s',
+          prop1: 'Pressão',
+          prop2: 'Entropia'
+        }, {
+          id: 4,
+          properties: 'h, s',
+          prop1: 'Entalpia',
+          prop2: 'Entropia'
+        }]
+      }];
 
-
-    ///////////////////////////////////////////////////////////////////////////////////
-
-    activate();
-
-    ////////////////
-
-    function activate() {}
-  }
+      vm.substanceList = substanceList;
+      return vm.substanceList;
+    };
+  };
 })();
