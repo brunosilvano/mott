@@ -23,20 +23,6 @@
 	<div class="list">
 		<div class="item item-thermo_prop">
 			<div class="row">
-				<div class="col">Pressão:</div>
-				<div class="col">{{ vm.result.p | number:6 }}</div>
-				<div class="col col-20">MPa</div>
-			</div>
-		</div>
-		<div class="item item-thermo_prop">
-			<div class="row">
-				<div class="col">Temperatura:</div>
-				<div class="col">{{ vm.result.t | number:6 }}</div>
-				<div class="col col-20">K</div>
-			</div>
-		</div>
-		<div class="item item-thermo_prop">
-			<div class="row">
 				<div class="col">Densidade</div>
 				<div class="col">{{ vm.result.rho | number:6 }}</div>
 				<div class="col col-20">kg/m<sup>3</div>
@@ -56,14 +42,14 @@
 				<div class="col col-20">kJ/kg</div>
 			</div>
 		</div>
-		<div class="item item-thermo_prop">
+		<div class="item item-thermo_prop" ng-hide="vm.input == 3 || vm.input == 4">
 			<div class="row">
 				<div class="col">Entropia:</div>
 				<div class="col">{{ vm.result.s | number:3 }}</div>
 				<div class="col col-20">kJ/kg.K</div>
 			</div>
 		</div>
-		<div class="item item-thermo_prop">
+		<div class="item item-thermo_prop" ng-hide="vm.input == 2 || vm.input == 4">
 			<div class="row">
 				<div class="col">Entalpia:</div>
 				<div class="col">{{ vm.result.h | number:3 }}</div>
@@ -89,6 +75,20 @@
 				<div class="col">Velocidade do Som:</div>
 				<div class="col">{{ vm.result.w | number:3 }}</div>
 				<div class="col col-20">m/s</div>
+			</div>
+		</div>
+		<div class="item item-thermo_prop" ng-hide="vm.input == 1 || vm.input == 2 || vm.input == 3">
+			<div class="row">
+				<div class="col">Pressão:</div>
+				<div class="col">{{ vm.result.p | number:6 }}</div>
+				<div class="col col-20">MPa</div>
+			</div>
+		</div>
+		<div class="item item-thermo_prop" ng-hide="vm.input == 1">
+			<div class="row">
+				<div class="col">Temperatura:</div>
+				<div class="col">{{ vm.result.t | number:6 }}</div>
+				<div class="col col-20">K</div>
 			</div>
 		</div>
 	</div>
