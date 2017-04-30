@@ -37,11 +37,27 @@
       }]
     }];
     vm.result = null;
-    vm.prop1 = 0.5;
-    vm.prop2 = 1500;
+    vm.prop1 = null;
+    vm.prop2 = null;
 
     vm.calculate = function () {
-        vm.result = NeutriumJS.thermo.IAPWS97.PT.solve(vm.prop1, vm.prop2);
+      switch (vm.input) {
+        case 1:
+          vm.result = NeutriumJS.thermo.IAPWS97.PT.solve(vm.prop1, vm.prop2);
+          break;
+        case 2:
+          vm.result = NeutriumJS.thermo.IAPWS97.PH.solve(vm.prop1, vm.prop2);
+          break;
+        case 3:
+          vm.result = NeutriumJS.thermo.IAPWS97.PS.solve(vm.prop1, vm.prop2);
+          break;
+        case 4:
+          vm.result = NeutriumJS.thermo.IAPWS97.HS.solve(vm.prop1, vm.prop2);
+          break;
+        default:
+          break;
+      }
+
     }
 
 
