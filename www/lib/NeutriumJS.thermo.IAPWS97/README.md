@@ -80,7 +80,7 @@ IAPWS provides four methods to calculate the properties of steam and water using
 
 ### Return Values
 
-If your specified values lie within the applicable range for the IAWPS formulations you will be return an object containing the following properties:
+If your specified values lie within the applicable range for the IAPWS formulations you will be return an object containing the following properties:
 
 	{
 		p, 		// Pressure, p, MPa
@@ -100,7 +100,7 @@ If your specified values lie within the applicable range for the IAWPS formulati
 		ic		// Ionisation constant
 	}
 
-If you try and calculate the properties outside the range of applicability as specified by IAWPS an exception will be thrown.
+If you try and calculate the properties outside the range of applicability as specified by IAPWS an exception will be thrown.
 
 ## Optional Neutrium Convert Support
 
@@ -121,7 +121,7 @@ See the  the NeutriumJS.convert [readme](https://github.com/NativeDynamics/Neutr
 
 ## Testing
 
-NeutriumJS Steam is currently tested using all applicable tests provided in the IAWPS papers listed above. To run the tests, after cloning the repo install all npm and bower dependencies then run the default gulp task.
+NeutriumJS Steam is currently tested using all applicable tests provided in the IAPWS papers listed above. To run the tests, after cloning the repo install all npm and bower dependencies then run the default gulp task.
 
 ## Donations
 

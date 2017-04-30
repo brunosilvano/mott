@@ -48,7 +48,7 @@
 	return PH;
 
 	//
-	//	Comments : Calculate the steam properties using IAWPS for a given pressure and temperature
+	//	Comments : Calculate the steam properties using IAPWS for a given pressure and temperature
 	//
 	//	@param P is the pressure of the water in MPa
 	//	@param h is the enthalpy kg/KJ.K

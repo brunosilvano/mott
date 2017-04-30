@@ -7,7 +7,7 @@
 	],
 	"main": "dist/neutriumJS.thermo.IAPWS97.min.js",
 	"private": false,
-	"description": "A javascript implementation of the IAWPS formulations for the thermodynamic properties of water and steam.",
+	"description": "A javascript implementation of the IAPWS formulations for the thermodynamic properties of water and steam.",
 	"license": "CC-BY-4.0",
 	"ignore": [
 		"**/.*",

@@ -14,7 +14,7 @@
 
 	if(typeof define === "function" && define.amd)
 	{
-		define('NeutriumJS/thermo/IAWPS97/PT', ['NeutriumJS/thermo/IAPWS97'], factory);
+		define('NeutriumJS/thermo/IAPWS97/PT', ['NeutriumJS/thermo/IAPWS97'], factory);
 	}
 	else if (typeof exports === "object" && module.exports)
 	{
@@ -61,7 +61,7 @@
 	return PT;
 
 	//
-	//	Comments : Calculate the steam properties using IAWPS for a given pressure and temperature
+	//	Comments : Calculate the steam properties using IAPWS for a given pressure and temperature
 	//
 	//	@param P is the pressure of the water in MPa
 	//	@param T is the temperature in K

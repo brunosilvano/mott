@@ -419,7 +419,7 @@
 
 	function Exception(message)
 	{
-		this.name = 'NeutriumJS.thermo.IAWPS Exception';
-		this.message = message || 'The current input values are out of range for the IAWPS correlations';
+		this.name = 'NeutriumJS.thermo.IAPWS Exception';
+		this.message = message || 'The current input values are out of range for the IAPWS correlations';
 	}
 }));
