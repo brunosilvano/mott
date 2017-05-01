@@ -4,8 +4,9 @@
 </ion-header-bar>
 <ion-content class="has-header">
     <div class="list">
+        <div class="item item-divider"><b>Geral</b></div>
         <label class="item item-input item-select">
-            <div class="input-label"><b>Casas Decimais</b></div>
+            <div class="input-label">Casas Decimais</div>
             <select ng-model="vm.decimalPlaces">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -15,18 +16,14 @@
                 <option value="6">6</option>
             </select>
         </label>
-        <!--<label class="item item-input item-select">
-            <div class="input-label"><b>Dados de Entrada</b></div>
-            <select ng-model="vm.input" ng-options="input.id as input.properties for input in vm.substanceList[vm.substance - 1].inputs"></select>
+        <div class="item item-divider"><b>Unidades</b></div>
+        <label class="item item-input item-select">
+            <div class="input-label">Temperatura</div>
+            <select ng-model="vm.temperatureUnit">
+                <option value="1">ºC</option>
+                <option value="2">K</option>
+            </select>
         </label>
-        <label class="item item-input">
-            <div class="input-label"><b ng-bind="vm.substanceList[vm.substance - 1].inputs[vm.input - 1].prop1"></b></div>
-            <input ng-model="vm.prop1" ng-change="vm.calculate()" type="number" style="text-align: right">
-        </label>
-        <label class="item item-input">
-            <div class="input-label"><b ng-bind="vm.substanceList[vm.substance - 1].inputs[vm.input - 1].prop2"></b></div>
-            <input ng-model="vm.prop2" ng-change="vm.calculate()" type="number" style="text-align: right">
-        </label>-->
     </div>
     <div class="row">
         <div class="col">

@@ -9,7 +9,8 @@
     function config() {
         var service = {
             settings: {
-                decimalPlaces: 6
+                decimalPlaces: '6',
+                temperatureUnit: '1'
             }
         };
 

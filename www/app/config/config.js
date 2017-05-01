@@ -9,8 +9,9 @@
     function ConfigController(config) {
         var vm = this;
 
-        vm.decimalPlaces = '6';
+        vm.decimalPlaces = config.settings.decimalPlaces;
         vm.save = save;
+        vm.temperatureUnit = config.settings.temperatureUnit;
 
         activate();
 
@@ -21,6 +22,7 @@
 
         function save() {
             config.settings.decimalPlaces = vm.decimalPlaces;
+            config.settings.temperatureUnit = vm.temperatureUnit;
         };
     };
 })();
