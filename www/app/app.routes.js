@@ -7,14 +7,21 @@
   routeConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
   function routeConfig($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/calculate');
 
     $stateProvider
 
-      .state('app', {
-        url: '/',
+      .state('calculate', {
+        url: '/calculate',
         templateUrl: 'app/properties/properties.html',
         controller: 'PropertiesController',
+        controllerAs: 'vm'
+      })
+
+      .state('config', {
+        url: '/config',
+        templateUrl: 'app/config/config.html',
+        controller: 'ConfigController',
         controllerAs: 'vm'
       })
 
