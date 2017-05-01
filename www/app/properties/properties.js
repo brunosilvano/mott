@@ -5,11 +5,12 @@
     .module('app')
     .controller('PropertiesController', PropertiesController);
 
-  // PropertiesController.inject = ['dependency1'];
-  function PropertiesController() {
+  PropertiesController.inject = ['config'];
+  function PropertiesController(config) {
     var vm = this;
 
     vm.calculate = calculate;
+    vm.decimalPlaces = config.settings.decimalPlaces;
     vm.input = 1;
     vm.prop1 = null;
     vm.prop2 = null;
