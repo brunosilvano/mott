@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('app')
@@ -10,9 +10,9 @@
         var service = {
             settings: {
                 decimalPlaces: 6
-            } 
+            }
         };
-        
+
         return service;
     };
 })();

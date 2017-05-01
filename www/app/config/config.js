@@ -1,19 +1,26 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('app')
-    .controller('ConfigController', ConfigController);
+    angular
+        .module('app')
+        .controller('ConfigController', ConfigController);
 
-  // ConfigController.inject = ['dependency1'];
-  function ConfigController() {
-    var vm = this;
+    ConfigController.inject = ['config'];
+    function ConfigController(config) {
+        var vm = this;
 
-    activate();
+        vm.decimalPlaces = '6';
+        vm.save = save;
 
-    ////////////////
+        activate();
 
-    function activate() {
+        ////////////////
+
+        function activate() {
+        };
+
+        function save() {
+            config.settings.decimalPlaces = vm.decimalPlaces;
+        };
     };
-  };
 })();

@@ -1,4 +1,36 @@
 <ion-header-bar align-title="center" class="bar-light">
-	<button ui-sref="calculate" class="button-clear button icon ion-ios-arrow-left">Voltar</button>
+    <button ui-sref="calculate" class="button-clear button icon ion-ios-arrow-left">Voltar</button>
     <h1 class="title"><b>Configurações</b></h1>
 </ion-header-bar>
+<ion-content class="has-header">
+    <div class="list">
+        <label class="item item-input item-select">
+            <div class="input-label"><b>Casas Decimais</b></div>
+            <select ng-model="vm.decimalPlaces">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </label>
+        <!--<label class="item item-input item-select">
+            <div class="input-label"><b>Dados de Entrada</b></div>
+            <select ng-model="vm.input" ng-options="input.id as input.properties for input in vm.substanceList[vm.substance - 1].inputs"></select>
+        </label>
+        <label class="item item-input">
+            <div class="input-label"><b ng-bind="vm.substanceList[vm.substance - 1].inputs[vm.input - 1].prop1"></b></div>
+            <input ng-model="vm.prop1" ng-change="vm.calculate()" type="number" style="text-align: right">
+        </label>
+        <label class="item item-input">
+            <div class="input-label"><b ng-bind="vm.substanceList[vm.substance - 1].inputs[vm.input - 1].prop2"></b></div>
+            <input ng-model="vm.prop2" ng-change="vm.calculate()" type="number" style="text-align: right">
+        </label>-->
+    </div>
+    <div class="row">
+        <div class="col">
+            <button ng-click="vm.save()" class="button button-block button-positive">Salvar</button>
+        </div>
+    </div>
+</ion-content>
