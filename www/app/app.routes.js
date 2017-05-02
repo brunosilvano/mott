@@ -22,7 +22,8 @@
         url: '/config',
         templateUrl: 'app/config/config.html',
         controller: 'ConfigController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        cache: false
       })
 
     ;
