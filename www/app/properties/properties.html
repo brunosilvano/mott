@@ -1,96 +1,98 @@
-<ion-header-bar align-title="center" class="bar-light">
-	<h1 class="title"><b>Propriedades</b></h1>
-	<button ui-sref="config" class="button icon ion-gear-a"></button>
-</ion-header-bar>
-<ion-content class="has-header">
-	<div class="list">
-		<label class="item item-input item-select">
-			<div class="input-label"><b>Substância</b></div>
-			<select ng-model="vm.substance" ng-options="substance.id as substance.name for substance in vm.substanceList"></select>
-		</label>
-		<label class="item item-input item-select">
-			<div class="input-label"><b>Dados de Entrada</b></div>
-			<select ng-model="vm.input" ng-options="input.id as input.properties for input in vm.substanceList[vm.substance - 1].inputs"></select>
-		</label>
-		<label class="item item-input">
-			<div class="input-label"><b ng-bind="vm.substanceList[vm.substance - 1].inputs[vm.input - 1].prop1"></b></div>
-			<input ng-model="vm.prop1" ng-change="vm.calculate()" type="number" style="text-align: right">
-		</label>
-		<label class="item item-input">
-			<div class="input-label"><b ng-bind="vm.substanceList[vm.substance - 1].inputs[vm.input - 1].prop2"></b></div>
-			<input ng-model="vm.prop2" ng-change="vm.calculate()" type="number" style="text-align: right">
-		</label>
-	</div>
-	<div class="list">
-		<div class="item item-thermo_prop">
-			<div class="row">
-				<div class="col">Densidade</div>
-				<div class="col">{{ vm.result.rho | round:vm.decimalPlaces }}</div>
-				<div class="col col-20">kg/m<sup>3</div>
+<ion-view>
+	<ion-header-bar align-title="center" class="bar-light">
+		<h1 class="title"><b>Propriedades</b></h1>
+		<button ui-sref="config" class="button icon ion-gear-a"></button>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<div class="list">
+			<label class="item item-input item-select">
+				<div class="input-label"><b>Substância</b></div>
+				<select ng-model="vm.substance" ng-options="substance.id as substance.name for substance in vm.substanceList"></select>
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label"><b>Dados de Entrada</b></div>
+				<select ng-model="vm.input" ng-options="input.id as input.properties for input in vm.substanceList[vm.substance - 1].inputs"></select>
+			</label>
+			<label class="item item-input">
+				<div class="input-label"><b ng-bind="vm.substanceList[vm.substance - 1].inputs[vm.input - 1].prop1"></b></div>
+				<input ng-model="vm.prop1" ng-change="vm.calculate()" type="number" style="text-align: right">
+			</label>
+			<label class="item item-input">
+				<div class="input-label"><b ng-bind="vm.substanceList[vm.substance - 1].inputs[vm.input - 1].prop2"></b></div>
+				<input ng-model="vm.prop2" ng-change="vm.calculate()" type="number" style="text-align: right">
+			</label>
+		</div>
+		<div class="list">
+			<div class="item item-thermo_prop">
+				<div class="row">
+					<div class="col">Densidade</div>
+					<div class="col">{{ vm.result.rho | round:vm.decimalPlaces }}</div>
+					<div class="col col-20">kg/m<sup>3</div>
+				</div>
+			</div>
+			<div class="item item-thermo_prop">
+				<div class="row">
+					<div class="col">Volume Específico:</div>
+					<div class="col">{{ vm.result.v | round:vm.decimalPlaces }}</div>
+					<div class="col col-20">m<sup>3</sup>/kg</div>
+				</div>
+			</div>
+			<div class="item item-thermo_prop">
+				<div class="row">
+					<div class="col">Energia Interna:</div>
+					<div class="col">{{ vm.result.u | round:vm.decimalPlaces }}</div>
+					<div class="col col-20">kJ/kg</div>
+				</div>
+			</div>
+			<div class="item item-thermo_prop" ng-hide="vm.input == 3 || vm.input == 4">
+				<div class="row">
+					<div class="col">Entropia:</div>
+					<div class="col">{{ vm.result.s | round:vm.decimalPlaces }}</div>
+					<div class="col col-20">kJ/kg.K</div>
+				</div>
+			</div>
+			<div class="item item-thermo_prop" ng-hide="vm.input == 2 || vm.input == 4">
+				<div class="row">
+					<div class="col">Entalpia:</div>
+					<div class="col">{{ vm.result.h | round:vm.decimalPlaces }}</div>
+					<div class="col col-20">kJ/kg</div>
+				</div>
+			</div>
+			<div class="item item-thermo_prop">
+				<div class="row">
+					<div class="col">Cp:</div>
+					<div class="col">{{ vm.result.cp | round:vm.decimalPlaces }}</div>
+					<div class="col col-20">kJ/kg.K</div>
+				</div>
+			</div>
+			<div class="item item-thermo_prop">
+				<div class="row">
+					<div class="col">Cv:</div>
+					<div class="col">{{ vm.result.cv | round:vm.decimalPlaces }}</div>
+					<div class="col col-20">kJ/kg.K</div>
+				</div>
+			</div>
+			<div class="item item-thermo_prop">
+				<div class="row">
+					<div class="col">Velocidade do Som:</div>
+					<div class="col">{{ vm.result.w | round:vm.decimalPlaces }}</div>
+					<div class="col col-20">m/s</div>
+				</div>
+			</div>
+			<div class="item item-thermo_prop" ng-hide="vm.input == 1 || vm.input == 2 || vm.input == 3">
+				<div class="row">
+					<div class="col">Pressão:</div>
+					<div class="col">{{ vm.result.p | round:vm.decimalPlaces }}</div>
+					<div class="col col-20">MPa</div>
+				</div>
+			</div>
+			<div class="item item-thermo_prop" ng-hide="vm.input == 1">
+				<div class="row">
+					<div class="col">Temperatura:</div>
+					<div class="col">{{ vm.result.t | round:vm.decimalPlaces }}</div>
+					<div class="col col-20">K</div>
+				</div>
 			</div>
 		</div>
-		<div class="item item-thermo_prop">
-			<div class="row">
-				<div class="col">Volume Específico:</div>
-				<div class="col">{{ vm.result.v | round:vm.decimalPlaces }}</div>
-				<div class="col col-20">m<sup>3</sup>/kg</div>
-			</div>
-		</div>
-		<div class="item item-thermo_prop">
-			<div class="row">
-				<div class="col">Energia Interna:</div>
-				<div class="col">{{ vm.result.u | round:vm.decimalPlaces }}</div>
-				<div class="col col-20">kJ/kg</div>
-			</div>
-		</div>
-		<div class="item item-thermo_prop" ng-hide="vm.input == 3 || vm.input == 4">
-			<div class="row">
-				<div class="col">Entropia:</div>
-				<div class="col">{{ vm.result.s | round:vm.decimalPlaces }}</div>
-				<div class="col col-20">kJ/kg.K</div>
-			</div>
-		</div>
-		<div class="item item-thermo_prop" ng-hide="vm.input == 2 || vm.input == 4">
-			<div class="row">
-				<div class="col">Entalpia:</div>
-				<div class="col">{{ vm.result.h | round:vm.decimalPlaces }}</div>
-				<div class="col col-20">kJ/kg</div>
-			</div>
-		</div>
-		<div class="item item-thermo_prop">
-			<div class="row">
-				<div class="col">Cp:</div>
-				<div class="col">{{ vm.result.cp | round:vm.decimalPlaces }}</div>
-				<div class="col col-20">kJ/kg.K</div>
-			</div>
-		</div>
-		<div class="item item-thermo_prop">
-			<div class="row">
-				<div class="col">Cv:</div>
-				<div class="col">{{ vm.result.cv | round:vm.decimalPlaces }}</div>
-				<div class="col col-20">kJ/kg.K</div>
-			</div>
-		</div>
-		<div class="item item-thermo_prop">
-			<div class="row">
-				<div class="col">Velocidade do Som:</div>
-				<div class="col">{{ vm.result.w | round:vm.decimalPlaces }}</div>
-				<div class="col col-20">m/s</div>
-			</div>
-		</div>
-		<div class="item item-thermo_prop" ng-hide="vm.input == 1 || vm.input == 2 || vm.input == 3">
-			<div class="row">
-				<div class="col">Pressão:</div>
-				<div class="col">{{ vm.result.p | round:vm.decimalPlaces }}</div>
-				<div class="col col-20">MPa</div>
-			</div>
-		</div>
-		<div class="item item-thermo_prop" ng-hide="vm.input == 1">
-			<div class="row">
-				<div class="col">Temperatura:</div>
-				<div class="col">{{ vm.result.t | round:vm.decimalPlaces }}</div>
-				<div class="col col-20">K</div>
-			</div>
-		</div>
-	</div>
-</ion-content>
+	</ion-content>
+</ion-view>
