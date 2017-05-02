@@ -5,8 +5,8 @@
     .module('app')
     .controller('PropertiesController', PropertiesController);
 
-  PropertiesController.inject = ['config'];
-  function PropertiesController(config) {
+  PropertiesController.inject = ['config', 'converter'];
+  function PropertiesController(config, converter) {
     var vm = this;
 
     vm.calculate = calculate;

@@ -7,7 +7,7 @@
   routeConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
   function routeConfig($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/config');
+    $urlRouterProvider.otherwise('/calculate');
 
     $stateProvider
 
