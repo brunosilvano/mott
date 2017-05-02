@@ -7,11 +7,34 @@
 
     // config.inject = ['dependency1'];
     function config() {
+
         var service = {
-            settings: {
-                decimalPlaces: '6',
-                temperatureUnit: '1'
-            }
+            getDecimalPlaces: getDecimalPlaces,
+            getTemperatureUnit: getTemperatureUnit,
+            setDecimalPlaces: setDecimalPlaces,
+            setTemperatureUnit: setTemperatureUnit
+        };
+
+        var settings = {
+            decimalPlaces: '6',
+            temperatureUnits: '1'
+        };
+
+        // TODO: add localstorage support
+        function getDecimalPlaces() {
+            return settings.decimalPlaces;
+        };
+
+        function getTemperatureUnit() {
+            return settings.temperatureUnits;
+        };
+
+        function setDecimalPlaces(n) {
+            settings.decimalPlaces = n;
+        };
+
+        function setTemperatureUnit(n) {
+            settings.temperatureUnits = n;
         };
 
         return service;

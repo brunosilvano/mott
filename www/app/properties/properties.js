@@ -10,7 +10,7 @@
     var vm = this;
 
     vm.calculate = calculate;
-    vm.decimalPlaces = config.settings.decimalPlaces;
+    vm.decimalPlaces = config.getDecimalPlaces();
     vm.input = 1;
     vm.prop1 = null;
     vm.prop2 = null;
