@@ -10,14 +10,25 @@
 
         var service = {
             getDecimalPlaces: getDecimalPlaces,
-            getTemperatureUnit: getTemperatureUnit,
             setDecimalPlaces: setDecimalPlaces,
-            setTemperatureUnit: setTemperatureUnit
+            getUnits: getUnits,
+            setUnits: setUnits
         };
 
         var settings = {
             decimalPlaces: '6',
-            temperatureUnits: '1'
+            units: {
+                t: 'tempK',
+                p: 'MPa',
+                rho: 'kg/m^3',
+                v: 'm^3/kg',
+                u: 'kJ/kg',
+                s: 'kJ kg^-1 degK^-1',
+                h: 'kJ/kg',
+                cp: 'kJ kg^-1 degK^-1',
+                cv: 'kJ kg^-1 degK^-1',
+                w: 'm/s'
+            }
         };
 
         // TODO: add localstorage support
@@ -25,16 +36,16 @@
             return settings.decimalPlaces;
         };
 
-        function getTemperatureUnit() {
-            return settings.temperatureUnits;
+        function getUnits() {
+            return settings.units;
         };
 
         function setDecimalPlaces(n) {
             settings.decimalPlaces = n;
         };
 
-        function setTemperatureUnit(n) {
-            settings.temperatureUnits = n;
+        function setUnits(units) {
+            settings.units = units;
         };
 
         return service;

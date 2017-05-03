@@ -18,6 +18,8 @@
     vm.substance = 1;
     vm.substanceList = [];
 
+    vm.units = config.getUnits();
+
     activate();
 
     ////////////////
@@ -29,15 +31,23 @@
     function calculate() {
       switch (vm.input) {
         case 1:
-          vm.result = NeutriumJS.thermo.IAPWS97.PT.solve(vm.prop1, vm.prop2);
+          var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
+          var prop2 = converter.convert(vm.prop2, vm.units.t, 'tempK');
+          vm.result = NeutriumJS.thermo.IAPWS97.PT.solve(prop1, prop2);
           break;
         case 2:
+          var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
+          var prop2 = converter.convert(vm.prop2, vm.units.h, 'kJ kg^-1');
           vm.result = NeutriumJS.thermo.IAPWS97.PH.solve(vm.prop1, vm.prop2);
           break;
         case 3:
+          var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
+          var prop2 = converter.convert(vm.prop2, vm.units.s, 'kJ kg^-1 degK^-1');
           vm.result = NeutriumJS.thermo.IAPWS97.PS.solve(vm.prop1, vm.prop2);
           break;
         case 4:
+          var prop1 = converter.convert(vm.prop1, vm.units.h, 'kJ kg^-1');
+          var prop2 = converter.convert(vm.prop2, vm.units.s, 'kJ kg^-1 degK^-1');
           vm.result = NeutriumJS.thermo.IAPWS97.HS.solve(vm.prop1, vm.prop2);
           break;
         default:

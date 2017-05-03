@@ -27,70 +27,70 @@
 				<div class="row">
 					<div class="col">Densidade</div>
 					<div class="col">{{ vm.result.rho | round:vm.decimalPlaces }}</div>
-					<div class="col col-20">kg/m<sup>3</div>
+					<div class="col col-20">{{ vm.units.rho }}</div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop">
 				<div class="row">
 					<div class="col">Volume Específico:</div>
 					<div class="col">{{ vm.result.v | round:vm.decimalPlaces }}</div>
-					<div class="col col-20">m<sup>3</sup>/kg</div>
+					<div class="col col-20">{{ vm.units.v }}</div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop">
 				<div class="row">
 					<div class="col">Energia Interna:</div>
 					<div class="col">{{ vm.result.u | round:vm.decimalPlaces }}</div>
-					<div class="col col-20">kJ/kg</div>
+					<div class="col col-20">{{ vm.units.u }}</div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop" ng-hide="vm.input == 3 || vm.input == 4">
 				<div class="row">
 					<div class="col">Entropia:</div>
 					<div class="col">{{ vm.result.s | round:vm.decimalPlaces }}</div>
-					<div class="col col-20">kJ/kg.K</div>
+					<div class="col col-20">{{ vm.units.s }}</div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop" ng-hide="vm.input == 2 || vm.input == 4">
 				<div class="row">
 					<div class="col">Entalpia:</div>
 					<div class="col">{{ vm.result.h | round:vm.decimalPlaces }}</div>
-					<div class="col col-20">kJ/kg</div>
+					<div class="col col-20">{{ vm.units.h }}</div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop">
 				<div class="row">
 					<div class="col">Cp:</div>
 					<div class="col">{{ vm.result.cp | round:vm.decimalPlaces }}</div>
-					<div class="col col-20">kJ/kg.K</div>
+					<div class="col col-20">{{ vm.units.cp }}</div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop">
 				<div class="row">
 					<div class="col">Cv:</div>
 					<div class="col">{{ vm.result.cv | round:vm.decimalPlaces }}</div>
-					<div class="col col-20">kJ/kg.K</div>
+					<div class="col col-20">{{ vm.units.cv }}</div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop">
 				<div class="row">
 					<div class="col">Velocidade do Som:</div>
 					<div class="col">{{ vm.result.w | round:vm.decimalPlaces }}</div>
-					<div class="col col-20">m/s</div>
+					<div class="col col-20">{{ vm.units.w }}</div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop" ng-hide="vm.input == 1 || vm.input == 2 || vm.input == 3">
 				<div class="row">
 					<div class="col">Pressão:</div>
 					<div class="col">{{ vm.result.p | round:vm.decimalPlaces }}</div>
-					<div class="col col-20">MPa</div>
+					<div class="col col-20">{{ vm.units.p }}</div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop" ng-hide="vm.input == 1">
 				<div class="row">
 					<div class="col">Temperatura:</div>
 					<div class="col">{{ vm.result.t | round:vm.decimalPlaces }}</div>
-					<div class="col col-20">K</div>
+					<div class="col col-20">{{ vm.units.t }}</div>
 				</div>
 			</div>
 		</div>
