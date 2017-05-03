@@ -15,7 +15,6 @@
 
         ////////////////
         function convert(value, inUnit, outUnit) {
-            console.log(value, inUnit, outUnit)
             var qty = Qty(value, inUnit);
             return qty.to(outUnit).scalar;
         };

@@ -20,11 +20,129 @@
             <div class="item item-divider"><b>Unidades</b></div>
             <label class="item item-input item-select">
                 <div class="input-label">Temperatura</div>
-                <select ng-model="vm.temperatureUnit">
-                    <option value="1">ºC</option>
-                    <option value="2">K</option>
+                <select ng-model="vm.unit.t">
+                    <option value="tempC">ºC</option>
+                    <option value="tempK">K</option>
+                    <!--<option value="tempF">ºF</option>-->
                 </select>
             </label>
+            <label class="item item-input item-select">
+                <div class="input-label">Pressão</div>
+                <select ng-model="vm.unit.p">
+                    <option value="bar">bar</option>
+                    <option value="mbar">mbar</option>
+                    <option value="Pa">Pa</option>
+                    <option value="kPa">kPa</option>
+                    <option value="MPa">MPa</option>
+                    <!--<option value="1">psi</option>-->
+                    <!--<option value="1">kp/cm^2</option>-->
+                    <!--<option value="1">at</option>-->
+                    <!--<option value="1">atm</option>-->
+                    <!--<option value="1">mmHg</option>-->
+                    <!--<option value="1">Torr</option>-->
+                    <!--<option value="1">m H2O</option>-->
+                    <!--<option value="1">in Hg</option>-->
+                    <!--<option value="1">ft H2O</option>-->
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">Densidade</div>
+                <select ng-model="vm.unit.rho">
+                    <option value="kg/m^3">kg/m^3</option>
+                    <option value="g/m^3">g/m^3</option>
+                    <option value="kg/l">kg/l</option>
+                    <option value="g/l">g/l</option>
+                    <option value="g/ml">g/ml</option>
+                    <!--<option value="2">lb/ft^3</option>-->
+                    <!--<option value="2">lb/in^3</option>-->
+                    <!--<option value="2">lb/gal(US)</option>-->
+                    <!--<option value="2">lb/gal(UK)</option>-->
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">Volume Específico</div>
+                <select ng-model="vm.unit.v">
+                    <option value="m^3/kg">m^3/kg</option>
+                    <option value="m^3/g">m^3/g</option>
+                    <option value="l/kg">l/kg</option>
+                    <option value="l/g">l/g</option>
+                    <option value="ml/g">ml/g</option>
+                    <!--<option value="2">ft^3/lb</option>-->
+                    <!--<option value="2">in^3/lb</option>-->
+                    <!--<option value="2">gal(US)/lb</option>-->
+                    <!--<option value="2">gal(UK)/lb</option>-->
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">Energia Interna</div>
+                <select ng-model="vm.unit.u">
+                    <option value="kJ/kg">kJ/kg</option>
+                    <option value="J/kg">J/kg</option>
+                    <option value="J/g">J/g</option>
+                    <!--<option value="2">btu/lb</option>-->
+                    <!--<option value="2">kcal/kg</option>-->
+                    <!--<option value="2">cal/kg</option>-->
+                    <!--<option value="2">cal/g</option>-->
+                    <!--<option value="2">ft lbf/lbm</option>-->
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">Entropia</div>
+                <select ng-model="vm.unit.s">
+                    <option value="kJ kg^-1 K^-1">kJ/(kg K)</option>
+                    <option value="J kg^-1 K^-1">J/(kg K)</option>
+                    <option value="J g^-1 K^-1">J/(g K)</option>
+                    <!--<option value="2">kcal/(kg K)</option>-->
+                    <!--<option value="2">cal/(kg K)</option>-->
+                    <!--<option value="2">cal/(g K)</option>-->
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">Entalpia</div>
+                <select ng-model="vm.unit.h">
+                    <option value="kJ/kg">kJ/kg</option>
+                    <option value="J/kg">J/kg</option>
+                    <option value="J/g">J/g</option>
+                    <!--<option value="2">btu/lb</option>-->
+                    <!--<option value="2">kcal/kg</option>-->
+                    <!--<option value="2">cal/kg</option>-->
+                    <!--<option value="2">cal/g</option>-->
+                    <!--<option value="2">ft lbf/lbm</option>-->
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">Cp</div>
+                <select ng-model="vm.unit.cp">
+                    <option value="kJ kg^-1 K^-1">kJ/(kg K)</option>
+                    <option value="J kg^-1 K^-1">J/(kg K)</option>
+                    <option value="J g^-1 K^-1">J/(g K)</option>
+                    <!--<option value="2">kcal/(kg K)</option>-->
+                    <!--<option value="2">cal/(kg K)</option>-->
+                    <!--<option value="2">cal/(g K)</option>-->
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">Cv</div>
+                <select ng-model="vm.unit.cv">
+                    <option value="kJ kg^-1 K^-1">kJ/(kg K)</option>
+                    <option value="J kg^-1 K^-1">J/(kg K)</option>
+                    <option value="J g^-1 K^-1">J/(g K)</option>
+                    <!--<option value="2">kcal/(kg K)</option>-->
+                    <!--<option value="2">cal/(kg K)</option>-->
+                    <!--<option value="2">cal/(g K)</option>-->
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">Velocidade do Som</div>
+                <select ng-model="vm.unit.w">
+                    <option value="m/s">m/s</option>
+                    <option value="km/h">km/h</option>
+                    <!--<option value="2">ft/s</option>-->
+                    <!--<option value="2">mile/h</option>-->
+                    <!--<option value="2">in/s</option>-->
+                </select>
+            </label>
+
         </div>
         <div class="row">
             <div class="col">
