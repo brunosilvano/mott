@@ -15,6 +15,7 @@
     vm.prop1 = null;
     vm.prop2 = null;
     vm.result = {};
+    vm.setInputType = setInputType;
     vm.substance = 1;
     vm.substanceList = [];
 
@@ -25,7 +26,9 @@
     ////////////////
 
     function activate() {
-      return getSubstances();
+      getSubstances();
+      setInputType();
+      return;
     };
 
     function calculate() {
@@ -95,6 +98,10 @@
         result = null;
       }
       return result;
+    };
+
+    function setInputType() {
+      vm.inputType = vm.substanceList[vm.substance - 1].inputs[vm.input - 1].properties.toLowerCase().replace(/,\s/, '');
     };
     
   };

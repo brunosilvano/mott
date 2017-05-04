@@ -11,14 +11,14 @@
 			</label>
 			<label class="item item-input item-select">
 				<div class="input-label"><b>Dados de Entrada</b></div>
-				<select ng-model="vm.input" ng-options="input.id as input.properties for input in vm.substanceList[vm.substance - 1].inputs"></select>
+				<select ng-model="vm.input" ng-change="vm.setInputType()" ng-options="input.id as input.properties for input in vm.substanceList[vm.substance - 1].inputs"></select>
 			</label>
 			<label class="item item-input">
-				<div class="input-label"><b ng-bind="vm.substanceList[vm.substance - 1].inputs[vm.input - 1].prop1"></b></div>
+				<div class="input-label"><b ng-bind="vm.substanceList[vm.substance - 1].inputs[vm.input - 1].prop1"></b> ({{ vm.units[vm.inputType[0]] }})</div>
 				<input ng-model="vm.prop1" ng-change="vm.calculate()" type="number" style="text-align: right">
 			</label>
 			<label class="item item-input">
-				<div class="input-label"><b ng-bind="vm.substanceList[vm.substance - 1].inputs[vm.input - 1].prop2"></b></div>
+				<div class="input-label"><b ng-bind="vm.substanceList[vm.substance - 1].inputs[vm.input - 1].prop2"></b> ({{ vm.units[vm.inputType[1]] }})</div>
 				<input ng-model="vm.prop2" ng-change="vm.calculate()" type="number" style="text-align: right">
 			</label>
 		</div>
