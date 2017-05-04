@@ -33,22 +33,22 @@
         case 1:
           var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
           var prop2 = converter.convert(vm.prop2, vm.units.t, 'tempK');
-          vm.result = NeutriumJS.thermo.IAPWS97.PT.solve(prop1, prop2);
+          vm.result = getWaterPop('PT', prop1, prop2);
           break;
         case 2:
           var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
           var prop2 = converter.convert(vm.prop2, vm.units.h, 'kJ kg^-1');
-          vm.result = NeutriumJS.thermo.IAPWS97.PH.solve(vm.prop1, vm.prop2);
+          vm.result = getWaterPop('PH', prop1, prop2);
           break;
         case 3:
           var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
           var prop2 = converter.convert(vm.prop2, vm.units.s, 'kJ kg^-1 degK^-1');
-          vm.result = NeutriumJS.thermo.IAPWS97.PS.solve(vm.prop1, vm.prop2);
+          vm.result = getWaterPop('PS', prop1, prop2);
           break;
         case 4:
           var prop1 = converter.convert(vm.prop1, vm.units.h, 'kJ kg^-1');
           var prop2 = converter.convert(vm.prop2, vm.units.s, 'kJ kg^-1 degK^-1');
-          vm.result = NeutriumJS.thermo.IAPWS97.HS.solve(vm.prop1, vm.prop2);
+          vm.result = getWaterPop('HS', prop1, prop2);
           break;
         default:
           break;
@@ -85,5 +85,17 @@
       vm.substanceList = substanceList;
       return vm.substanceList;
     };
+
+    function getWaterPop(inputType, prop1, prop2) {
+      var result = null;
+      try {
+        result = NeutriumJS.thermo.IAPWS97[inputType].solve(prop1, prop2);
+      }
+      catch (error) {
+        result = null;
+      }
+      return result;
+    };
+    
   };
 })();
