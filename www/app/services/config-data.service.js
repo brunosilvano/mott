@@ -23,10 +23,10 @@
                 rho: 'kg/m^3',
                 v: 'm^3/kg',
                 u: 'kJ/kg',
-                s: 'kJ kg^-1 degK^-1',
+                s: 'kJ/kg degK',
                 h: 'kJ/kg',
-                cp: 'kJ kg^-1 degK^-1',
-                cv: 'kJ kg^-1 degK^-1',
+                cp: 'kJ/kg degK',
+                cv: 'kJ/kg degK',
                 w: 'm/s'
             }
         };

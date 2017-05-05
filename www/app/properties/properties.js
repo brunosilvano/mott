@@ -40,17 +40,17 @@
           break;
         case 2:
           var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
-          var prop2 = converter.convert(vm.prop2, vm.units.h, 'kJ kg^-1');
+          var prop2 = converter.convert(vm.prop2, vm.units.h, 'kJ/kg');
           vm.result = getWaterPop('PH', prop1, prop2);
           break;
         case 3:
           var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
-          var prop2 = converter.convert(vm.prop2, vm.units.s, 'kJ kg^-1 degK^-1');
+          var prop2 = converter.convert(vm.prop2, vm.units.s, 'kJ/kg degK');
           vm.result = getWaterPop('PS', prop1, prop2);
           break;
         case 4:
-          var prop1 = converter.convert(vm.prop1, vm.units.h, 'kJ kg^-1');
-          var prop2 = converter.convert(vm.prop2, vm.units.s, 'kJ kg^-1 degK^-1');
+          var prop1 = converter.convert(vm.prop1, vm.units.h, 'kJ/kg');
+          var prop2 = converter.convert(vm.prop2, vm.units.s, 'kJ/kg degK');
           vm.result = getWaterPop('HS', prop1, prop2);
           break;
         default:
