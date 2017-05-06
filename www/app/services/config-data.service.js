@@ -15,7 +15,7 @@
             setUnits: setUnits
         };
 
-        var settings = {
+        var settings = angular.fromJson(localStorage.getItem("configData")) || {
             decimalPlaces: '6',
             units: {
                 t: 'tempK',
@@ -31,7 +31,6 @@
             }
         };
 
-        // TODO: add localstorage support
         function getDecimalPlaces() {
             return settings.decimalPlaces;
         };
@@ -42,10 +41,12 @@
 
         function setDecimalPlaces(n) {
             settings.decimalPlaces = n;
+            localStorage.setItem("configData", angular.toJson(settings));
         };
 
         function setUnits(units) {
             settings.units = units;
+            localStorage.setItem("configData", angular.toJson(settings));
         };
 
         return service;
