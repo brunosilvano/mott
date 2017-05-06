@@ -117,30 +117,6 @@
           prop1: 'Entalpia',
           prop2: 'Entropia'
         }]
-      }, {
-        id: 2,
-        name: 'Chumbo',
-        inputs: [{
-          id: 1,
-          properties: 'p, T',
-          prop1: 'Pressão',
-          prop2: 'Temperatura'
-        }, {
-          id: 2,
-          properties: 'p, h',
-          prop1: 'Pressão',
-          prop2: 'Entalpia'
-        }, {
-          id: 3,
-          properties: 'p, s',
-          prop1: 'Pressão',
-          prop2: 'Entropia'
-        }, {
-          id: 4,
-          properties: 'h, s',
-          prop1: 'Entalpia',
-          prop2: 'Entropia'
-        }]
       }];
 
       vm.substanceList = substanceList;
