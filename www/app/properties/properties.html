@@ -4,7 +4,7 @@
 		<button ui-sref="config" class="button icon ion-gear-a"></button>
 	</ion-header-bar>
 	<ion-content class="has-header">
-		<div class="list">
+		<div class="list" style="margin-bottom: 0;">
 			<label class="item item-input item-select">
 				<div class="input-label"><b>Substância</b></div>
 				<select ng-model="vm.substance" ng-options="substance.id as substance.name for substance in vm.substanceList"></select>
@@ -22,74 +22,79 @@
 				<input ng-model="vm.prop2" ng-change="vm.calculate()" type="number" style="text-align: right">
 			</label>
 		</div>
+		<div class="row">
+			<div class="col">
+				<p  class="error" style="margin-bottom: 0;"><span ng-show="vm.error"><icon class="ion-alert-circled"></icon> Valores fora da faixa de validade</span>&nbsp;</p>
+			</div>
+		</div>
 		<div class="list">
 			<div class="item item-thermo_prop">
 				<div class="row">
 					<div class="col">Densidade</div>
-					<div class="col">{{ vm.result.rho | round:vm.decimalPlaces }}</div>
+					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.rho | round:vm.decimalPlaces }}</div>
 					<div class="col col-20" ng-bind-html="vm.units.rho | unitsToHTML"></div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop">
 				<div class="row">
 					<div class="col">Volume Específico:</div>
-					<div class="col">{{ vm.result.v | round:vm.decimalPlaces }}</div>
+					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.v | round:vm.decimalPlaces }}</div>
 					<div class="col col-20" ng-bind-html="vm.units.v | unitsToHTML"></div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop">
 				<div class="row">
 					<div class="col">Energia Interna:</div>
-					<div class="col">{{ vm.result.u | round:vm.decimalPlaces }}</div>
+					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.u | round:vm.decimalPlaces }}</div>
 					<div class="col col-20" ng-bind-html="vm.units.u | unitsToHTML"></div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop" ng-hide="vm.input == 3 || vm.input == 4">
 				<div class="row">
 					<div class="col">Entropia:</div>
-					<div class="col">{{ vm.result.s | round:vm.decimalPlaces }}</div>
+					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.s | round:vm.decimalPlaces }}</div>
 					<div class="col col-20" ng-bind-html="vm.units.s | unitsToHTML"></div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop" ng-hide="vm.input == 2 || vm.input == 4">
 				<div class="row">
 					<div class="col">Entalpia:</div>
-					<div class="col">{{ vm.result.h | round:vm.decimalPlaces }}</div>
+					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.h | round:vm.decimalPlaces }}</div>
 					<div class="col col-20" ng-bind-html="vm.units.h | unitsToHTML"></div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop">
 				<div class="row">
 					<div class="col">Cp:</div>
-					<div class="col">{{ vm.result.cp | round:vm.decimalPlaces }}</div>
+					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.cp | round:vm.decimalPlaces }}</div>
 					<div class="col col-20" ng-bind-html="vm.units.cp | unitsToHTML"></div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop">
 				<div class="row">
 					<div class="col">Cv:</div>
-					<div class="col">{{ vm.result.cv | round:vm.decimalPlaces }}</div>
+					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.cv | round:vm.decimalPlaces }}</div>
 					<div class="col col-20" ng-bind-html="vm.units.cv | unitsToHTML"></div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop">
 				<div class="row">
 					<div class="col">Velocidade do Som:</div>
-					<div class="col">{{ vm.result.w | round:vm.decimalPlaces }}</div>
+					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.w | round:vm.decimalPlaces }}</div>
 					<div class="col col-20" ng-bind-html="vm.units.w | unitsToHTML"></div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop" ng-hide="vm.input == 1 || vm.input == 2 || vm.input == 3">
 				<div class="row">
 					<div class="col">Pressão:</div>
-					<div class="col">{{ vm.result.p | round:vm.decimalPlaces }}</div>
+					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.p | round:vm.decimalPlaces }}</div>
 					<div class="col col-20" ng-bind-html="vm.units.p | unitsToHTML"></div>
 				</div>
 			</div>
 			<div class="item item-thermo_prop" ng-hide="vm.input == 1">
 				<div class="row">
 					<div class="col">Temperatura:</div>
-					<div class="col">{{ vm.result.t | round:vm.decimalPlaces }}</div>
+					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.t | round:vm.decimalPlaces }}</div>
 					<div class="col col-20" ng-bind-html="vm.units.t | unitsToHTML"></div>
 				</div>
 			</div>
