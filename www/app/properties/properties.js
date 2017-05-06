@@ -34,12 +34,12 @@
     };
 
     function calculate() {
-      inputCache.input = {
+      inputCache.setData({
         type: vm.input,
         prop1: vm.prop1,
         prop2: vm.prop2,
         substance: vm.substance
-      };
+      });
       if (vm.prop1 && vm.prop2) {
         switch (vm.input) {
           case 1:
