@@ -15,7 +15,8 @@
         url: '/calculate',
         templateUrl: 'app/properties/properties.html',
         controller: 'PropertiesController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        cache: false
       })
 
       .state('config', {
