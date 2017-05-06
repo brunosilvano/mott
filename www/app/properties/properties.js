@@ -5,19 +5,20 @@
     .module('app')
     .controller('PropertiesController', PropertiesController);
 
-  PropertiesController.inject = ['config', 'converter'];
-  function PropertiesController(config, converter) {
+  PropertiesController.inject = ['config', 'converter', 'inputCache'];
+
+  function PropertiesController(config, converter, inputCache) {
     var vm = this;
 
     vm.calculate = calculate;
     vm.decimalPlaces = config.getDecimalPlaces();
     vm.error = false;
-    vm.input = 1;
-    vm.prop1 = null;
-    vm.prop2 = null;
+    vm.input = inputCache.input.type || 1;
+    vm.prop1 = inputCache.input.prop1;
+    vm.prop2 = inputCache.input.prop2;
     vm.result = {};
     vm.setInputType = setInputType;
-    vm.substance = 1;
+    vm.substance = inputCache.input.substance || 1;
     vm.substanceList = [];
     vm.units = config.getUnits();
 
@@ -28,10 +29,17 @@
     function activate() {
       getSubstances();
       setInputType();
+      calculate();
       return;
     };
 
     function calculate() {
+      inputCache.input = {
+        type: vm.input,
+        prop1: vm.prop1,
+        prop2: vm.prop2,
+        substance: vm.substance
+      };
       if (vm.prop1 && vm.prop2) {
         switch (vm.input) {
           case 1:
@@ -109,6 +117,30 @@
           prop1: 'Entalpia',
           prop2: 'Entropia'
         }]
+      }, {
+        id: 2,
+        name: 'Chumbo',
+        inputs: [{
+          id: 1,
+          properties: 'p, T',
+          prop1: 'Pressão',
+          prop2: 'Temperatura'
+        }, {
+          id: 2,
+          properties: 'p, h',
+          prop1: 'Pressão',
+          prop2: 'Entalpia'
+        }, {
+          id: 3,
+          properties: 'p, s',
+          prop1: 'Pressão',
+          prop2: 'Entropia'
+        }, {
+          id: 4,
+          properties: 'h, s',
+          prop1: 'Entalpia',
+          prop2: 'Entropia'
+        }]
       }];
 
       vm.substanceList = substanceList;
@@ -128,6 +160,7 @@
 
     function setInputType() {
       vm.inputType = vm.substanceList[vm.substance - 1].inputs[vm.input - 1].properties.toLowerCase().replace(/,\s/, '');
+      calculate();
     };
 
   };
