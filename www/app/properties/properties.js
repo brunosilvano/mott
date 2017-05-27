@@ -41,34 +41,50 @@
         substance: vm.substance
       });
       if (vm.prop1 && vm.prop2) {
-        switch (vm.input) {
-          case 1:
-            var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
-            var prop2 = converter.convert(vm.prop2, vm.units.t, 'tempK');
-            vm.result = getWaterPop('PT', prop1, prop2);
-            convertOutput();
-            break;
-          case 2:
-            var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
-            var prop2 = converter.convert(vm.prop2, vm.units.h, 'kJ/kg');
-            vm.result = getWaterPop('PH', prop1, prop2);
-            convertOutput();
-            break;
-          case 3:
-            var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
-            var prop2 = converter.convert(vm.prop2, vm.units.s, 'kJ/kg degK');
-            vm.result = getWaterPop('PS', prop1, prop2);
-            convertOutput();
-            break;
-          case 4:
-            var prop1 = converter.convert(vm.prop1, vm.units.h, 'kJ/kg');
-            var prop2 = converter.convert(vm.prop2, vm.units.s, 'kJ/kg degK');
-            vm.result = getWaterPop('HS', prop1, prop2);
-            convertOutput();
-            break;
-          default:
-            break;
-        };
+        // if selected substance is Water
+        if (vm.substance == 1) {
+          switch (vm.input) {
+            case 1:
+              var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
+              var prop2 = converter.convert(vm.prop2, vm.units.t, 'tempK');
+              vm.result = getWaterProp('PT', prop1, prop2);
+              convertOutput();
+              break;
+            case 2:
+              var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
+              var prop2 = converter.convert(vm.prop2, vm.units.h, 'kJ/kg');
+              vm.result = getWaterProp('PH', prop1, prop2);
+              convertOutput();
+              break;
+            case 3:
+              var prop1 = converter.convert(vm.prop1, vm.units.p, 'MPa');
+              var prop2 = converter.convert(vm.prop2, vm.units.s, 'kJ/kg degK');
+              vm.result = getWaterProp('PS', prop1, prop2);
+              convertOutput();
+              break;
+            case 4:
+              var prop1 = converter.convert(vm.prop1, vm.units.h, 'kJ/kg');
+              var prop2 = converter.convert(vm.prop2, vm.units.s, 'kJ/kg degK');
+              vm.result = getWaterProp('HS', prop1, prop2);
+              convertOutput();
+              break;
+            default:
+              break;
+          };
+        }
+        // if selected substance is R1234yf
+        else if (vm.substance == 2) {
+          switch (vm.input) {
+            case 1:
+              var prop1 = converter.convert(vm.prop1, vm.units.rho, 'kg/m^3');
+              var prop2 = converter.convert(vm.prop2, vm.units.t, 'tempK');
+              vm.result = getR1234yfProp('RHOT', prop1, prop2);
+              convertOutput();
+              break;
+            default:
+              break;
+          };
+        }
       }
     };
 
@@ -133,7 +149,7 @@
       return vm.substanceList;
     };
 
-    function getWaterPop(inputType, prop1, prop2) {
+    function getWaterProp(inputType, prop1, prop2) {
       var result = null;
       try {
         result = NeutriumJS.thermo.IAPWS97[inputType].solve(prop1, prop2);
@@ -143,6 +159,17 @@
       }
       return result;
     };
+
+    function getR1234yfProp(inputType, prop1, prop2) {
+      var result = null;
+      try {
+        result = R1234yf[inputType](prop1, prop2);
+      }
+      catch (error) {
+        result = null;
+      }
+      return result;
+    }
 
     function setInputType() {
       vm.inputType = vm.substanceList[vm.substance - 1].inputs[vm.input - 1].properties.toLowerCase().split(',');
