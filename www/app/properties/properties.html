@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		<div class="list">
-			<div class="item item-thermo_prop">
+			<div class="item item-thermo_prop" ng-hide="vm.inputType.includes('rho')">
 				<div class="row">
 					<div class="col">Densidade</div>
 					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.rho | round:vm.decimalPlaces }}</div>
@@ -49,14 +49,14 @@
 					<div class="col col-20" ng-bind-html="vm.units.u | unitsToHTML"></div>
 				</div>
 			</div>
-			<div class="item item-thermo_prop" ng-hide="vm.input == 3 || vm.input == 4">
+			<div class="item item-thermo_prop" ng-hide="vm.inputType.includes('s')">
 				<div class="row">
 					<div class="col">Entropia:</div>
 					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.s | round:vm.decimalPlaces }}</div>
 					<div class="col col-20" ng-bind-html="vm.units.s | unitsToHTML"></div>
 				</div>
 			</div>
-			<div class="item item-thermo_prop" ng-hide="vm.input == 2 || vm.input == 4">
+			<div class="item item-thermo_prop" ng-hide="vm.inputType.includes('h')">
 				<div class="row">
 					<div class="col">Entalpia:</div>
 					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.h | round:vm.decimalPlaces }}</div>
@@ -84,14 +84,14 @@
 					<div class="col col-20" ng-bind-html="vm.units.w | unitsToHTML"></div>
 				</div>
 			</div>
-			<div class="item item-thermo_prop" ng-hide="vm.input == 1 || vm.input == 2 || vm.input == 3">
+			<div class="item item-thermo_prop" ng-hide="vm.inputType.includes('p')">
 				<div class="row">
 					<div class="col">Pressão:</div>
 					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.p | round:vm.decimalPlaces }}</div>
 					<div class="col col-20" ng-bind-html="vm.units.p | unitsToHTML"></div>
 				</div>
 			</div>
-			<div class="item item-thermo_prop" ng-hide="vm.input == 1">
+			<div class="item item-thermo_prop" ng-hide="vm.inputType.includes('t')">
 				<div class="row">
 					<div class="col">Temperatura:</div>
 					<div class="col" ng-class="{'error': vm.error}">{{ vm.result.t | round:vm.decimalPlaces }}</div>

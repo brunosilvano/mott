@@ -172,6 +172,9 @@
     }
 
     function setInputType() {
+      if (!vm.substanceList[vm.substance - 1].inputs[vm.input - 1]) {
+        vm.input = 1;
+      }
       vm.inputType = vm.substanceList[vm.substance - 1].inputs[vm.input - 1].properties.toLowerCase().split(',');
       // calculate();
     };
