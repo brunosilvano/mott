@@ -344,13 +344,15 @@
             };
 
             var result = {
-                cp: R * (- (alpha0taltal() + alphaRtaltal()) + (Math.pow((1 + alphaRdelta() - alphaRtaldelta()), 2) / (1 + 2 * alphaRdelta() + alphaRdeltadelta()))),
-                cv: R * (- (alpha0taltal() + alphaRtaltal())),
-                h: R * T * (alpha0tal() + alphaRtal() + alphaRdelta() + 1),     // OK
-                p: rho * R * T * (1 + (alphaRdelta())),                         // OK
-                s: R * (alpha0tal() + alphaRtal() - alpha0() - alphaR()),       // OK
-                u: R * T * (alpha0tal() + alphaRtal()),                         // OK
+                t: T,
+                p: (rho * R * T * (1 + (alphaRdelta()))) / 1000000,
+                rho: rho,
                 v: 1 / rho,
+                u: (R * T * (alpha0tal() + alphaRtal())) / 1000,
+                s: (R * (alpha0tal() + alphaRtal() - alpha0() - alphaR())) / 1000,
+                h: (R * T * (alpha0tal() + alphaRtal() + alphaRdelta() + 1)) / 1000,
+                cp: (R * (- (alpha0taltal() + alphaRtaltal()) + (Math.pow((1 + alphaRdelta() - alphaRtaldelta()), 2) / (1 + 2 * alphaRdelta() + alphaRdeltadelta())))) / 1000,
+                cv: (R * (- (alpha0taltal() + alphaRtaltal()))) / 1000,
                 w: (R * T / M) * Math.sqrt(1 + 2 * alphaRdelta() + alphaRdeltadelta() - (Math.pow((1 + alphaRdelta() - alphaRtaldelta()), 2) / (alpha0taltal() + alphaRtaltal())))
             };
 
