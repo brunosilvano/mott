@@ -5,9 +5,9 @@
     .module('app')
     .controller('PropertiesController', PropertiesController);
 
-  PropertiesController.inject = ['config', 'converter', 'inputCache'];
+  PropertiesController.inject = ['config', 'converter', 'inputCache', 'R1234yf'];
 
-  function PropertiesController(config, converter, inputCache) {
+  function PropertiesController(config, converter, inputCache, R1234yf) {
     var vm = this;
 
     vm.calculate = calculate;
@@ -86,6 +86,7 @@
         vm.result.w = converter.convert(vm.result.w, 'm/s', vm.units.w);
 
         vm.error = false;
+        console.log(vm.result);
       }
       catch (error) {
         vm.error = true;
@@ -98,24 +99,33 @@
         name: 'Água',
         inputs: [{
           id: 1,
-          properties: 'p, T',
+          properties: 'p,T',
           prop1: 'Pressão',
           prop2: 'Temperatura'
         }, {
           id: 2,
-          properties: 'p, h',
+          properties: 'p,h',
           prop1: 'Pressão',
           prop2: 'Entalpia'
         }, {
           id: 3,
-          properties: 'p, s',
+          properties: 'p,s',
           prop1: 'Pressão',
           prop2: 'Entropia'
         }, {
           id: 4,
-          properties: 'h, s',
+          properties: 'h,s',
           prop1: 'Entalpia',
           prop2: 'Entropia'
+        }]
+      }, {
+        id: 2,
+        name: 'R1234yf',
+        inputs: [{
+          id: 1,
+          properties: 'rho,T',
+          prop1: 'Densidade',
+          prop2: 'Temperatura'
         }]
       }];
 
@@ -135,8 +145,8 @@
     };
 
     function setInputType() {
-      vm.inputType = vm.substanceList[vm.substance - 1].inputs[vm.input - 1].properties.toLowerCase().replace(/,\s/, '');
-      calculate();
+      vm.inputType = vm.substanceList[vm.substance - 1].inputs[vm.input - 1].properties.toLowerCase().split(',');
+      // calculate();
     };
 
   };

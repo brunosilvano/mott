@@ -7,7 +7,7 @@
 		<div class="list" style="margin-bottom: 0;">
 			<label class="item item-input item-select">
 				<div class="input-label"><b>Substância</b></div>
-				<select ng-model="vm.substance" ng-change="vm.calculate()" ng-options="substance.id as substance.name for substance in vm.substanceList"></select>
+				<select ng-model="vm.substance" ng-change="vm.setInputType()" ng-options="substance.id as substance.name for substance in vm.substanceList"></select>
 			</label>
 			<label class="item item-input item-select">
 				<div class="input-label"><b>Dados de Entrada</b></div>
